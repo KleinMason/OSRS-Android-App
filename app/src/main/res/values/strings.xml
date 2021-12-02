@@ -3,4 +3,5 @@
     <string name="display_item_button">Display item</string>
     <string name="item_edit_text_hint">Item name</string>
     <string name="text_view_item">Item</string>
+    <string name="loading_text_view">Loading</string>
 </resources>
