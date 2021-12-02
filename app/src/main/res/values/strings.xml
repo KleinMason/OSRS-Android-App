@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">OSRS Utilities</string>
+    <string name="display_item_button">Display item</string>
+    <string name="item_edit_text_hint">Item name</string>
+    <string name="text_view_item">Item</string>
+</resources>
