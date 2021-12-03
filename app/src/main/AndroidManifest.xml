@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OSRSUtilities">
         <activity
-            android:name=".ItemDisplayActivity"
+            android:name=".EquipmentDisplayActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
