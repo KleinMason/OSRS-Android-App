@@ -4,4 +4,14 @@
     <string name="equipment_edit_text_hint">equipment name</string>
     <string name="text_view_equipment">equipment</string>
     <string name="loading_text_view">Loading</string>
+    <string name="stab_text_view_default">Stab:</string>
+    <string name="stab_text_view_with_stat">Stab: %1$s</string>
+    <string name="slash_text_view_default">Slash:</string>
+    <string name="slash_text_view_with_stat">Slash: %1$s</string>
+    <string name="crush_text_view_default">Crush:</string>
+    <string name="crush_text_view_with_stat">Crush: %1$s</string>
+    <string name="magic_text_view_default">Magic:</string>
+    <string name="magic_text_view_with_stat">Magic: %1$s</string>
+    <string name="ranged_text_view_default">Ranged:</string>
+    <string name="ranged_text_view_with_stat">Ranged: %1$s</string>
 </resources>

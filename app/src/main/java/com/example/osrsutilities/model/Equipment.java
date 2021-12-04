@@ -1,7 +1,7 @@
 package com.example.osrsutilities.model;
 
 public class Equipment {
-    int id = 0;
+//    int id = 0;
     String name = null;
     String slot = null;
     int attackStab = 0;
@@ -23,18 +23,18 @@ public class Equipment {
     }
 
     public Equipment(String name, String slot) {
-        this.id = id;
+//        this.id = id;
         this.name = name;
         this.slot = slot;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
-    public int getId() {
-        return id;
-    }
+//    public int getId() {
+//        return id;
+//    }
 
     public void setName(String name) {
         this.name = name;
@@ -50,5 +50,26 @@ public class Equipment {
 
     public String getSlot() {
         return slot;
+    }
+
+    public void setAttackStab(int stat) {
+        attackStab = stat;
+    }
+
+    public int getAttackStab() {
+        return attackStab;
+    }
+
+    public void setAttackSlash(int stat) {
+        attackSlash = stat;
+    }
+
+    public int getAttackSlash() {
+        return attackSlash;
+    }
+
+    public void setAllStats(int attStab, int attSlash) {
+        attackStab = attStab;
+        attackSlash = attSlash;
     }
 }

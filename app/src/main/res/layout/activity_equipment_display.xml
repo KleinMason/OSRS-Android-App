@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,24 +8,174 @@
     android:layout_margin="10dp"
     tools:context=".EquipmentDisplayActivity">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/weapon_text_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center" >
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:gravity="center_vertical"
+        android:hint="select weapon"
+        android:padding="12dp"
+        app:drawableEndCompat="@drawable/ic_arrow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Attack LinearLayout -->
+    <LinearLayout
+        android:id="@+id/attack_linear_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@id/defence_linear_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weapon_text_view">
+
         <TextView
-            android:id="@+id/weapon_text_view"
+            android:id="@+id/attack_bonuses_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="select weapon"
-            android:padding="12dp"
-            android:gravity="center_vertical"
-            android:background="@android:drawable/editbox_background"
-            app:drawableEndCompat="@drawable/ic_arrow" />
-    </RelativeLayout>
+            android:padding="8dp"
+            android:text="Attack Bonuses"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/attack_stab_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/stab_text_view_default" />
 
+        <TextView
+            android:id="@+id/attack_slash_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/slash_text_view_default" />
 
+        <TextView
+            android:id="@+id/attack_crush_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/crush_text_view_default" />
 
+        <TextView
+            android:id="@+id/attack_magic_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/magic_text_view_default" />
 
+        <TextView
+            android:id="@+id/attack_ranged_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/ranged_text_view_default" />
+
+    </LinearLayout>
+
+    <!-- Defence LinearLayout -->
+    <LinearLayout
+        android:id="@+id/defence_linear_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/attack_linear_layout"
+        app:layout_constraintTop_toBottomOf="@id/weapon_text_view">
+
+        <TextView
+            android:id="@+id/defence_bonuses_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Defence Bonuses"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/defence_stab_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/stab_text_view_default" />
+
+        <TextView
+            android:id="@+id/defence_slash_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/slash_text_view_default" />
+
+        <TextView
+            android:id="@+id/defence_crush_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/crush_text_view_default" />
+
+        <TextView
+            android:id="@+id/defence_magic_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/magic_text_view_default" />
+
+        <TextView
+            android:id="@+id/defence_ranged_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/ranged_text_view_default" />
+
+    </LinearLayout>
+    <!--
+    ATTACK BONUS
+    Stab: 12 done
+    Slash: -2 done
+    Crush: 10
+    Magic: 0
+    Ranged: 0
+    DEFENCE BONUS
+    Stab: 0
+    Slash: 1
+    Crush: 0
+    Magic: 0
+    Ranged: 0
+    -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

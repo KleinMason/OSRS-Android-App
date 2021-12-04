@@ -16,6 +16,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class EquipmentFetcher {
     private final String TAG = EquipmentFetcher.class.getSimpleName();
@@ -31,6 +32,11 @@ public class EquipmentFetcher {
         void onErrorResponse(VolleyError error);
     }
 
+    public interface OnSingleEquipmentDataReceivedListener {
+        void onSingleEquipmentReceived(Equipment equipment);
+        void onErrorResponse(VolleyError error);
+    }
+
     private final String WEBAPI_BASE_URL =
             "https://api.osrsbox.com/equipment";
 
@@ -42,34 +48,33 @@ public class EquipmentFetcher {
                     .appendQueryParameter("page", String.valueOf(pageNum)).toString();
             JsonObjectRequest request = new JsonObjectRequest(
                     Request.Method.GET, url, null,
-                    response -> listener.onEquipmentReceived(jsonToEquipment(response)),
+                    response -> listener.onEquipmentReceived(jsonToEquipmentList(response)),
                     error -> listener.onErrorResponse(error));
             mRequestQueue.add(request);
         } while (pageNum * 25 < total);
     }
 
-    public void fetchEquipment(final OnEquipmentDataReceivedListener listener, String pageNum) {
+    public void fetchSingleEquipment(final OnSingleEquipmentDataReceivedListener listener, String equipmentName) {
+        //https://api.osrsbox.com/equipment?where={ "name": "Bandos chestplate" }
+        String search = String.format("{\"name\":\"%s\"}", equipmentName);
         String url = Uri.parse(WEBAPI_BASE_URL).buildUpon()
-                .appendQueryParameter("page", pageNum).toString();
+                .appendQueryParameter("where", search).toString();
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET, url, null,
-                response -> listener.onEquipmentReceived(jsonToEquipment(response)),
+                response -> listener.onSingleEquipmentReceived(jsonToSingleEquipment(response)),
                 error -> listener.onErrorResponse(error));
         mRequestQueue.add(request);
-        if (Integer.parseInt(pageNum) < 2) {
-            fetchEquipment(listener, "2");
-        }
     }
 
-    private List<Equipment> jsonToEquipment(JSONObject json) {
+    private List<Equipment> jsonToEquipmentList(JSONObject json) {
         List<Equipment> EquipmentList = new ArrayList<>();
         try {
             total = json.getJSONObject("_meta").getInt("total");
-            JSONArray EquipmentArray = json.getJSONArray("_items");
-            for (int i = 0; i < EquipmentArray.length(); i++) {
-                JSONObject EquipmentObj = EquipmentArray.getJSONObject(i);
-                String name = EquipmentObj.getString("name");
-                String slot = EquipmentObj.getJSONObject("equipment").getString("slot");
+            JSONArray equipmentArray = json.getJSONArray("_items");
+            for (int i = 0; i < equipmentArray.length(); i++) {
+                JSONObject equipmentObj = equipmentArray.getJSONObject(i);
+                String name = equipmentObj.getString("name");
+                String slot = equipmentObj.getJSONObject("equipment").getString("slot");
                 Equipment equipment = new Equipment(name, slot);
                 EquipmentList.add(equipment);
             }
@@ -77,5 +82,23 @@ public class EquipmentFetcher {
             Log.e(TAG, "Field missing in the JSON data: " + e.getMessage());
         }
         return EquipmentList;
+    }
+    private Equipment jsonToSingleEquipment(JSONObject response) {
+        Equipment equipment = new Equipment();
+        try {
+            JSONArray equipmentArray = response.getJSONArray("_items");
+            JSONObject equipmentObj = equipmentArray.getJSONObject(0);
+            JSONObject statsObj = equipmentObj.getJSONObject("equipment");
+            String name = equipmentObj.getString("name");
+            String slot = statsObj.getString("slot");
+            int attStab = statsObj.getInt("attack_stab");
+            int attSlash = statsObj.getInt("attack_slash");
+            equipment.setName(name);
+            equipment.setSlot(slot);
+            equipment.setAllStats(attStab, attSlash);
+        } catch (Exception e) {
+            Log.e(TAG, "Field missing in the JSON data: " + e.getMessage());
+        }
+        return equipment;
     }
 }
