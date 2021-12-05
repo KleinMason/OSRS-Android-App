@@ -16,7 +16,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class EquipmentFetcher {
     private final String TAG = EquipmentFetcher.class.getSimpleName();
@@ -49,7 +48,7 @@ public class EquipmentFetcher {
             JsonObjectRequest request = new JsonObjectRequest(
                     Request.Method.GET, url, null,
                     response -> listener.onEquipmentReceived(jsonToEquipmentList(response)),
-                    error -> listener.onErrorResponse(error));
+                    listener::onErrorResponse);
             mRequestQueue.add(request);
         } while (pageNum * 25 < total);
     }
@@ -62,7 +61,7 @@ public class EquipmentFetcher {
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET, url, null,
                 response -> listener.onSingleEquipmentReceived(jsonToSingleEquipment(response)),
-                error -> listener.onErrorResponse(error));
+                listener::onErrorResponse);
         mRequestQueue.add(request);
     }
 
@@ -83,6 +82,7 @@ public class EquipmentFetcher {
         }
         return EquipmentList;
     }
+
     private Equipment jsonToSingleEquipment(JSONObject response) {
         Equipment equipment = new Equipment();
         try {
@@ -91,11 +91,25 @@ public class EquipmentFetcher {
             JSONObject statsObj = equipmentObj.getJSONObject("equipment");
             String name = equipmentObj.getString("name");
             String slot = statsObj.getString("slot");
-            int attStab = statsObj.getInt("attack_stab");
-            int attSlash = statsObj.getInt("attack_slash");
+            int attackStab = statsObj.getInt("attack_stab");
+            int attackSlash = statsObj.getInt("attack_slash");
+            int attackCrush = statsObj.getInt("attack_crush");
+            int attackMagic = statsObj.getInt("attack_magic");
+            int attackRanged = statsObj.getInt("attack_ranged");
+            int defenceStab = statsObj.getInt("defence_stab");
+            int defenceSlash = statsObj.getInt("defence_slash");
+            int defenceCrush = statsObj.getInt("defence_crush");
+            int defenceMagic = statsObj.getInt("defence_magic");
+            int defenceRanged = statsObj.getInt("defence_ranged");
+            int meleeStrength = statsObj.getInt("melee_strength");
+            int rangedStrength = statsObj.getInt("ranged_strength");
+            int magicDamage = statsObj.getInt("magic_damage");
+            int prayer = statsObj.getInt("prayer");
             equipment.setName(name);
             equipment.setSlot(slot);
-            equipment.setAllStats(attStab, attSlash);
+            equipment.setAllStats(attackStab, attackSlash, attackCrush, attackMagic,
+                    attackRanged, defenceStab, defenceSlash, defenceCrush, defenceMagic,
+                    defenceRanged, meleeStrength, rangedStrength, magicDamage, prayer);
         } catch (Exception e) {
             Log.e(TAG, "Field missing in the JSON data: " + e.getMessage());
         }

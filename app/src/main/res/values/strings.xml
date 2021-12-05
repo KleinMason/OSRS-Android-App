@@ -4,14 +4,52 @@
     <string name="equipment_edit_text_hint">equipment name</string>
     <string name="text_view_equipment">equipment</string>
     <string name="loading_text_view">Loading</string>
-    <string name="stab_text_view_default">Stab:</string>
-    <string name="stab_text_view_with_stat">Stab: %1$s</string>
-    <string name="slash_text_view_default">Slash:</string>
-    <string name="slash_text_view_with_stat">Slash: %1$s</string>
-    <string name="crush_text_view_default">Crush:</string>
-    <string name="crush_text_view_with_stat">Crush: %1$s</string>
-    <string name="magic_text_view_default">Magic:</string>
-    <string name="magic_text_view_with_stat">Magic: %1$s</string>
-    <string name="ranged_text_view_default">Ranged:</string>
-    <string name="ranged_text_view_with_stat">Ranged: %1$s</string>
+
+    <!-- TextView hints -->
+    <string name="select_head_hint">select head slot</string>
+    <string name="select_cape_slot">select cape slot</string>
+    <string name="select_neck_slot">select neck slot</string>
+    <string name="select_ammo_slot">select ammo slot</string>
+    <string name="select_weapon_hint">select weapon slot</string>
+    <string name="select_shield_hint">select shield slot</string>
+    <string name="select_body_hint">select body slot</string>
+    <string name="select_legs_hint">select legs slot</string>
+    <string name="select_hands_hint">select hands slot</string>
+    <string name="select_feet_hint">select feet slot</string>
+    <string name="select_ring_hint">select ring slot</string>
+    <!-- Attack fields -->
+    <string name="attack_bonuses">Attack</string>
+    <string name="stab_attack_default_text_view">Stab:</string>
+    <string name="stab_attack_stat_text_view">Stab: %1$s</string>
+    <string name="slash_attack_default_text_view">Slash:</string>
+    <string name="slash_attack_stat_text_view">Slash: %1$s</string>
+    <string name="crush_attack_default_text_view">Crush:</string>
+    <string name="crush_attack_stat_text_view">Crush: %1$s</string>
+    <string name="magic_attack_default_text_view">Magic:</string>
+    <string name="magic_attack_stat_text_view">Magic: %1$s</string>
+    <string name="ranged_attack_default_text_view">Ranged:</string>
+    <string name="ranged_attack_stat_text_view">Ranged: %1$s</string>
+    <!-- Defence fields -->
+    <string name="defence_bonuses">Defence</string>
+    <string name="stab_defence_default_text_view">Stab:</string>
+    <string name="stab_defence_stat_text_view">Stab: %1$s</string>
+    <string name="slash_defence_default_text_view">Slash:</string>
+    <string name="slash_defence_stat_text_view">Slash: %1$s</string>
+    <string name="crush_defence_default_text_view">Crush:</string>
+    <string name="crush_defence_stat_text_view">Crush: %1$s</string>
+    <string name="magic_defence_default_text_view">Magic:</string>
+    <string name="magic_defence_stat_text_view">Magic: %1$s</string>
+    <string name="ranged_defence_default_text_view">Ranged:</string>
+    <string name="ranged_defence_stat_text_view">Ranged: %1$s</string>
+    <!-- Other bonuses -->
+    <string name="other_bonuses">Other</string>
+    <string name="melee_strength_default_text_view">Melee strength:</string>
+    <string name="melee_strength_stat_text_view">Melee strength: %1$s</string>
+    <string name="ranged_strength_default_text_view">Ranged strength:</string>
+    <string name="ranged_strength_stat_text_view">Ranged strength: %1$s</string>
+    <string name="magic_damage_default_text_view">Magic damage:</string>
+    <string name="magic_damage_stat_text_view">Magic damage: %1$s</string>
+    <string name="prayer_default_text_view">Prayer:</string>
+    <string name="prayer_stat_text_view">Prayer: %1$s</string>
+    <string name="osrs_equipment_pane">osrs equipment pane</string>
 </resources>
