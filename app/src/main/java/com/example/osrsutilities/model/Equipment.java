@@ -22,6 +22,7 @@ public class Equipment {
     int prayer = 0;
     // TODO: add requirements?;
 
+    public static Boolean listsCreated = false;
     public static List<String> headList = new ArrayList<>();
     public static List<String> capeList = new ArrayList<>();
     public static List<String> neckList = new ArrayList<>();
