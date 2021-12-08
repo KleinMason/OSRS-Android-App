@@ -4,116 +4,149 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
+    android:padding="10dp"
+    android:background="#3E3529"
     tools:context=".EquipmentDisplayActivity">
 
 
-
-
-    <TextView
-        android:id="@+id/head_text_view"
-        style="@style/search_text_view"
-        android:hint="@string/select_head_hint"
-        android:textColorHint="#757575"
-        app:drawableEndCompat="@drawable/ic_arrow"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/stats_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/cape_text_view"
-        style="@style/search_text_view"
-        android:hint="@string/select_cape_slot"
-        android:textColorHint="#757575"
-        app:drawableEndCompat="@drawable/ic_arrow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/head_text_view" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="314dp"
+            android:layout_height="438dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/equipment_image"
+            app:srcCompat="@drawable/osrs_equipment_pane" />
 
-    <TextView
-        android:id="@+id/neck_text_view"
-        style="@style/search_text_view"
-        android:hint="@string/select_neck_slot"
-        android:textColorHint="#757575"
-        app:drawableEndCompat="@drawable/ic_arrow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cape_text_view" />
+        <TextView
+            android:id="@+id/head_text_view"
+            style="@style/search_text_view"
+            android:layout_marginTop="16dp"
+            android:hint="@string/select_head_hint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:drawableEndCompat="@drawable/ic_arrow" />
 
-    <TextView
-        android:id="@+id/ammo_text_view"
-        style="@style/search_text_view"
-        android:hint="@string/select_ammo_slot"
-        android:textColorHint="#757575"
-        app:drawableEndCompat="@drawable/ic_arrow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/neck_text_view" />
+        <TextView
+            android:id="@+id/cape_text_view"
+            style="@style/search_text_view"
+            android:layout_below="@id/head_text_view"
+            android:layout_marginTop="6dp"
+            android:layout_toStartOf="@id/neck_text_view"
+            android:hint="@string/select_cape_slot"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:drawableEndCompat="@drawable/ic_arrow" />
 
-    <TextView
-        android:id="@+id/weapon_text_view"
-        style="@style/search_text_view"
-        android:hint="@string/select_weapon_hint"
-        app:drawableEndCompat="@drawable/ic_arrow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ammo_text_view" />
+        <TextView
+            android:id="@+id/neck_text_view"
+            style="@style/search_text_view"
+            android:layout_below="@id/head_text_view"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/select_neck_slot"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:drawableEndCompat="@drawable/ic_arrow" />
 
-    <TextView
-        android:id="@+id/shield_text_view"
-        style="@style/search_text_view"
-        android:hint="@string/select_shield_hint"
-        app:drawableEndCompat="@drawable/ic_arrow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weapon_text_view" />
+        <TextView
+            android:id="@+id/ammo_text_view"
+            style="@style/search_text_view"
+            android:layout_below="@id/head_text_view"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@id/neck_text_view"
+            android:hint="@string/select_ammo_slot"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:drawableEndCompat="@drawable/ic_arrow" />
 
-    <TextView
-        android:id="@+id/body_text_view"
-        style="@style/search_text_view"
-        android:hint="@string/select_body_hint"
-        app:drawableEndCompat="@drawable/ic_arrow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/shield_text_view" />
+        <TextView
+            android:id="@+id/weapon_text_view"
+            style="@style/search_text_view"
+            android:layout_below="@id/neck_text_view"
+            android:layout_marginTop="6dp"
+            android:layout_toStartOf="@id/body_text_view"
+            android:hint="@string/select_weapon_hint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:drawableEndCompat="@drawable/ic_arrow" />
 
-    <TextView
-        android:id="@+id/legs_text_view"
-        style="@style/search_text_view"
-        android:hint="@string/select_legs_hint"
-        app:drawableEndCompat="@drawable/ic_arrow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/body_text_view" />
+        <TextView
+            android:id="@+id/shield_text_view"
+            style="@style/search_text_view"
+            android:layout_below="@id/neck_text_view"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@id/body_text_view"
+            android:hint="@string/select_shield_hint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:drawableEndCompat="@drawable/ic_arrow" />
 
-    <TextView
-        android:id="@+id/hands_text_view"
-        style="@style/search_text_view"
-        android:hint="@string/select_hands_hint"
-        app:drawableEndCompat="@drawable/ic_arrow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/legs_text_view" />
+        <TextView
+            android:id="@+id/body_text_view"
+            style="@style/search_text_view"
+            android:layout_below="@id/neck_text_view"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="42dp"
+            android:hint="@string/select_body_hint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:drawableEndCompat="@drawable/ic_arrow" />
 
-    <TextView
-        android:id="@+id/feet_text_view"
-        style="@style/search_text_view"
-        android:hint="@string/select_feet_hint"
-        app:drawableEndCompat="@drawable/ic_arrow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hands_text_view" />
+        <TextView
+            android:id="@+id/legs_text_view"
+            style="@style/search_text_view"
+            android:layout_below="@id/body_text_view"
+            android:layout_marginTop="8dp"
+            android:hint="@string/select_legs_hint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:drawableEndCompat="@drawable/ic_arrow" />
 
-    <TextView
-        android:id="@+id/ring_text_view"
-        style="@style/search_text_view"
-        android:hint="@string/select_ring_hint"
-        app:drawableEndCompat="@drawable/ic_arrow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/feet_text_view" />
+        <TextView
+            android:id="@+id/hands_text_view"
+            style="@style/search_text_view"
+            android:layout_below="@id/legs_text_view"
+            android:layout_marginTop="8dp"
+            android:layout_toStartOf="@id/feet_text_view"
+            android:hint="@string/select_hands_hint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:drawableEndCompat="@drawable/ic_arrow" />
 
+        <TextView
+            android:id="@+id/feet_text_view"
+            style="@style/search_text_view"
+            android:layout_below="@id/legs_text_view"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="42dp"
+            android:hint="@string/select_feet_hint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:drawableEndCompat="@drawable/ic_arrow" />
 
+        <TextView
+            android:id="@+id/ring_text_view"
+            style="@style/search_text_view"
+            android:layout_below="@id/legs_text_view"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/feet_text_view"
+            android:hint="@string/select_ring_hint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:drawableEndCompat="@drawable/ic_arrow" />
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/stats_layout"
@@ -142,6 +175,7 @@
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
                 android:text="@string/attack_bonuses"
+                android:textColor="@color/white"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -151,7 +185,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/stab_attack_default_text_view" />
+                android:text="@string/stab_attack_default_text_view"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/attack_slash_text_view"
@@ -159,7 +194,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/slash_attack_default_text_view" />
+                android:text="@string/slash_attack_default_text_view"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/attack_crush_text_view"
@@ -167,7 +203,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/crush_attack_default_text_view" />
+                android:text="@string/crush_attack_default_text_view"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/attack_magic_text_view"
@@ -175,7 +212,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/magic_attack_default_text_view" />
+                android:text="@string/magic_attack_default_text_view"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/attack_ranged_text_view"
@@ -183,7 +221,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/ranged_attack_default_text_view" />
+                android:text="@string/ranged_attack_default_text_view"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
@@ -206,6 +245,7 @@
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
                 android:text="@string/defence_bonuses"
+                android:textColor="@color/white"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -215,7 +255,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/stab_defence_default_text_view" />
+                android:text="@string/stab_defence_default_text_view"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/defence_slash_text_view"
@@ -223,7 +264,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/slash_defence_default_text_view" />
+                android:text="@string/slash_defence_default_text_view"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/defence_crush_text_view"
@@ -231,7 +273,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/crush_defence_default_text_view" />
+                android:text="@string/crush_defence_default_text_view"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/defence_magic_text_view"
@@ -239,7 +282,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/magic_defence_default_text_view" />
+                android:text="@string/magic_defence_default_text_view"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/defence_ranged_text_view"
@@ -247,7 +291,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/ranged_defence_default_text_view" />
+                android:text="@string/ranged_defence_default_text_view"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
@@ -267,6 +312,7 @@
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
                 android:text="@string/other_bonuses"
+                android:textColor="@color/white"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -276,7 +322,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/melee_strength_default_text_view" />
+                android:text="@string/melee_strength_default_text_view"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/ranged_strength_text_view"
@@ -284,7 +331,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/ranged_strength_default_text_view" />
+                android:text="@string/ranged_strength_default_text_view"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/magic_damage_text_view"
@@ -292,7 +340,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/magic_damage_default_text_view" />
+                android:text="@string/magic_damage_default_text_view"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/prayer_text_view"
@@ -300,8 +349,10 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="@string/prayer_default_text_view" />
+                android:text="@string/prayer_default_text_view"
+                android:textColor="@color/white" />
         </LinearLayout>
+
     </RelativeLayout>
 
 

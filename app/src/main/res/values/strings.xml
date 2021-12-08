@@ -4,7 +4,8 @@
     <string name="day_mode">Day Mode</string>
     <string name="display_equipment_button">Display equipment</string>
     <string name="equipment_edit_text_hint">equipment name</string>
-    <string name="text_view_equipment">equipment</string>
+    <string name="text_view_equipment">Equipment picker</string>
+    <string name="equipment_image">equipment image</string>
     <string name="loading_text_view">Loading</string>
 
     <!-- TextView hints -->

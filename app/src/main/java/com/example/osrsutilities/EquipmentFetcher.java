@@ -90,6 +90,7 @@ public class EquipmentFetcher {
             JSONObject equipmentObj = equipmentArray.getJSONObject(0);
             JSONObject statsObj = equipmentObj.getJSONObject("equipment");
             String name = equipmentObj.getString("name");
+            String icon = equipmentObj.getString("icon");
             String slot = statsObj.getString("slot");
             int attackStab = statsObj.getInt("attack_stab");
             int attackSlash = statsObj.getInt("attack_slash");
@@ -107,6 +108,7 @@ public class EquipmentFetcher {
             int prayer = statsObj.getInt("prayer");
             equipment.setName(name);
             equipment.setSlot(slot);
+            equipment.setIconB64(icon);
             equipment.setAllStats(attackStab, attackSlash, attackCrush, attackMagic,
                     attackRanged, defenceStab, defenceSlash, defenceCrush, defenceMagic,
                     defenceRanged, meleeStrength, rangedStrength, magicDamage, prayer);

@@ -21,13 +21,14 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private static String TAG = MainActivity.class.getSimpleName();
+    public static final String EXTRA_MESSAGE = "com.example.android.osrsutilities.extra.MESSAGE";
 
     private Button buttonItem;
     private EquipmentFetcher mEquipmentFetcher;
     private ProgressBar mLoadingProgressBar;
     private int count = 0;
 
-    private enum Slots {HEAD, CAPE, NECK, AMMO, WEAPON, SHIELD, BODY, LEGS, HANDS, FEET, RING, TWOHANDED}
+    private enum Slots {HEAD, CAPE, NECK, AMMO, WEAPON, SHIELD, BODY, LEGS, HANDS, FEET, RING}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 loadEquipmentDisplay();
             }
         });
+
         mLoadingProgressBar = findViewById(R.id.loading_progress_bar);
         if (!Equipment.listsCreated) {
             // Show progress bar
@@ -57,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadEquipmentDisplay() {
+        String value = "Does this count as passing data?";
         Intent intent = new Intent(this, EquipmentDisplayActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, value);
         startActivity(intent);
     }
 

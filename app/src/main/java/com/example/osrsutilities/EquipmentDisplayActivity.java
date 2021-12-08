@@ -1,12 +1,17 @@
 package com.example.osrsutilities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.app.Dialog;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.audiofx.DynamicsProcessing;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -22,7 +27,9 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.example.osrsutilities.model.Equipment;
 
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
+import android.util.Base64;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Locale;
@@ -30,6 +37,7 @@ import java.util.Locale;
 public class EquipmentDisplayActivity extends AppCompatActivity {
     private static final String TAG = EquipmentDisplayActivity.class.getSimpleName();
 
+    // Good lord that's a lot
     private TextView attackStabTV;
     private TextView attackSlashTV;
     private TextView attackCrushTV;
@@ -87,12 +95,19 @@ public class EquipmentDisplayActivity extends AppCompatActivity {
     private EquipmentFetcher mEquipmentFetcher;
     private Dialog dialog;
 
-    private enum Slots {HEAD, CAPE, NECK, AMMO, WEAPON, SHIELD, BODY, LEGS, HANDS, FEET, RING, TWOHANDED}
+    private enum Slots {HEAD, CAPE, NECK, AMMO, WEAPON, SHIELD, BODY, LEGS, HANDS, FEET, RING}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_equipment_display);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value = extras.getString(MainActivity.EXTRA_MESSAGE);
+            Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
+        }
+
         mEquipmentFetcher = new EquipmentFetcher(this);
         assignTextViews();
         setTotalStatVariables();
@@ -159,6 +174,11 @@ public class EquipmentDisplayActivity extends AppCompatActivity {
                             case HEAD:
                                 subtractFromTotalValues(head);
                                 head = equipment;
+//                                ByteArrayInputStream bais = new ByteArrayInputStream(
+//                                        Base64.decode(head.getIconB64(), Base64.DEFAULT));
+//                                Drawable ret = Drawable.createFromStream(bais, "hi");
+//                                headTV.setCompoundDrawablesWithIntrinsicBounds(null, null, ret, null);
+//                                bais.close();
                                 addToTotalValues(head);
                                 break;
                             case CAPE:
@@ -212,7 +232,6 @@ public class EquipmentDisplayActivity extends AppCompatActivity {
                                 addToTotalValues(equipment);
                             default:
                                 break;
-//   private enum Slots {HEAD, CAPE, NECK, AMMO, WEAPON, SHIELD, BODY, LEGS, HANDS, FEET, RING, TWOHANDED}
                         }
                     } catch (Exception e) {
                         Log.e(TAG, "No Slots of type: " + e.getMessage());

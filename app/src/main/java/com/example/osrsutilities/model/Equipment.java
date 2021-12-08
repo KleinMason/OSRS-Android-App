@@ -6,6 +6,7 @@ import java.util.List;
 public class Equipment {
     String name = null;
     String slot = "none";
+    String iconB64 = "none";
     int attackStab = 0;
     int attackSlash = 0;
     int attackCrush = 0;
@@ -62,6 +63,12 @@ public class Equipment {
     public void setSlot(String slot) {
         this.slot = slot;
     }
+
+    public String getIconB64() {
+        return iconB64;
+    }
+
+    public void setIconB64(String icon) {this.iconB64 = icon;}
 
     public int getAttackStab() {
         return attackStab;
